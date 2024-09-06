@@ -1,0 +1,53 @@
+SQL Homework
+World Database:
+1. SELECT * FROM country WHERE continent LIKE "South America";
+2. SELECT population FROM country WHERE Name = "Germany";
+3. SELECT * FROM city WHERE CountryCode = “JPN”;
+4. SELECT Name, Population FROM country WHERE Continent = "Africa" ORDER BY Population DESC LIMIT 3;
+5. SELECT Name, LifeExpectancy FROM country WHERE population BETWEEN 1000000 AND 5000000;
+6. SELECT country.Name FROM country JOIN countrylanguage ON country.Code = countrylanguage.CountryCode WHERE countrylanguage.Language = 'French' AND countrylanguage.IsOfficial = 'T';
+
+Chinook Database
+7. SELECT * FROM `Album` WHERE ArtistId = 1;
+8. SELECT FirstName, LastName, Email FROM `Customer` WHERE Country = "Brazil";
+9. SELECT Name FROM `Playlist`;
+10. SELECT COUNT(*) AS TotalTracks FROM Track JOIN Genre ON Track.GenreId = Genre.GenreId WHERE Genre.Name = 'Rock';
+11. SELECT Employee.FirstName, Employee.LastName FROM Employee JOIN Employee manager ON Employee.ReportsTo = manager.EmployeeId WHERE manager.FirstName = 'Nancy' AND manager.LastName = 'Edwards';
+12. SELECT Customer.FirstName, Customer.LastName, SUM(Invoice.Total) AS TotalSales FROM Customer JOIN Invoice ON Customer.CustomerId = Invoice.CustomerId GROUP BY Customer.CustomerId, Customer.FirstName, Customer.LastName ORDER BY TotalSales DESC;
+
+Create own Database:
+
+1. CREATE DATABASE ktp2gx;
+2. CREATE TABLE Books( BookID VARCHAR(100), Title VARCHAR(100), Year VARCHAR(100), Genre VARCHAR(100), Price VARCHAR(100));
+
+CREATE TABLE Customer( CustomerID VARCHAR(100), FirstName VARCHAR(100), LastName VARCHAR(100), Email VARCHAR(100), Phonenumber VARCHAR(100));
+
+CREATE TABLE Orders( OrderID VARCHAR(100), FirstName VARCHAR(100), LastName VARCHAR(100), Email VARCHAR(100), Phonenumber VARCHAR(100));
+
+3. INSERT INTO Books(BookID, Title, Year, Genre, Price) VALUES 
+('001', '1984', '1949', 'Dystopia', '15'),
+('002', 'To Kill a Mockingbird', '1960', 'Fiction', '13'),
+('003', 'The Great Gatsby', '1925', 'Fiction', '14'),
+('004', 'Pride and Prejudice', '1813', 'Romance', '16'),
+('005', 'Harry Potter and the Sorcerers Stone', '1997', 'Fantasy', '17');
+
+INSERT INTO Customer(CustomerID,FirstName,LastName,Email,Phonenumber)VALUES
+('001', 'John', 'Doe', 'john.doe@example.com', '4346601516'), 
+('002', 'Brynn', 'Hill', 'brynn.hill@example.com', '7659876233'),
+('003', 'Ryan', 'Sribar', 'ryan.sribar@example.com','1234567891'),
+('004', 'Sue', 'Allen', 'sue.allen@example.com', '5675671213'),
+('005', 'Charlotte', 'Hill', 'charlotte.hill@example.com', '4348411333');
+
+INSERT INTO Orders(OrderID,FirstName,LastName,Email,Phonenumber)VALUES
+('010', 'John', 'Doe', 'john.doe@example.com', '4346601516'), 
+('020', 'Brynn', 'Hill', 'brynn.hill@example.com', '7659876233'),
+('030', 'Ryan', 'Sribar', 'ryan.sribar@example.com','1234567891'),
+('040', 'Sue', 'Allen', 'sue.allen@example.com', '5675671213'),
+('050', 'Charlotte', 'Hill', 'charlotte.hill@example.com', '4348411333');
+
+4. Select LastName FROM Orders WHERE OrderID = "020";
+Select Title, Genre, Price FROM Books;
+SELECT FirstName, LastName FROM Orders WHERE OrderID > "020";
+
+
+
