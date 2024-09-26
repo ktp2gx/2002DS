@@ -1,0 +1,18 @@
+import json
+import pandas as pd
+import json
+import requests
+stocks = input("Please enter a list of stocks separated by commas: ").split(',')
+apikey="myAPIkey"
+
+url = "https://yfapi.net/v6/finance/quote"
+
+for stock in stocks:
+    querystring = {"symbols":stock}
+    headers = {
+        'x-api-key': apikey
+    }
+
+    response = requests.request("GET", url, headers=headers, params=querystring)
+    stock_json = response.json()
+    print(stock_json['quoteResponse']['result'][0]["longName"] + " Price:$" + str(stock_json['quoteResponse']['result'][0]["regularMarketPrice"]))
